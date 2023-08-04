@@ -44,8 +44,8 @@ def get_graph_difc(df, country):
     return fig
 
 # global df
-# df = calculate(download_data('Baseline'))
-df = calculate(pd.read_csv('Data/data.csv'))
+df = calculate(download_data('Baseline'))
+# df = calculate(pd.read_csv('Data/data.csv'))
 
 def select_driver():
     """Find least version of: ODBC Driver for SQL Server."""
