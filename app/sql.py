@@ -13,7 +13,7 @@ def select_driver():
     """Find least version of: ODBC Driver for SQL Server."""
     drv = sorted([drv for drv in pyodbc.drivers() if "ODBC Driver " in drv and " for SQL Server" in drv])
     if len(drv) == 0:
-        raise Exception("No 'ODBC Driver XX for SQL Server' found.")
+        raise Exception(sorted([drv for drv in pyodbc.drivers() if "ODBC Driver " in drv and " for SQL Server" in drv]))
     return drv[-1]
 
 def get_sql_connection():
