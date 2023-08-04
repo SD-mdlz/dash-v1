@@ -11,7 +11,7 @@ import datetime
 
 def select_driver():
     """Find least version of: ODBC Driver for SQL Server."""
-    drv = sorted([drv for drv in pyodbc.drivers()])
+    drv = sorted([drv for drv in pyodbc.drivers() if "SQL" in drv])
     if len(drv) == 0:
         raise Exception("No 'ODBC Driver XX for SQL Server' found.")
     return drv[0]
