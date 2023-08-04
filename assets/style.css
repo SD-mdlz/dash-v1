@@ -1,0 +1,39 @@
+@font-face {
+    font-family: mdlz;
+    src: url(MDLZBITETYPE-Regular.ttf);
+}
+
+tr:nth-child(4n) div.input-cell-value-shadow {
+    opacity: 1 !important
+}
+
+tr:nth-child(4n) input {
+    display: none;
+}
+tr:nth-child(4n+1) div.input-cell-value-shadow {
+    opacity: 1 !important
+}
+
+tr:nth-child(4n+1) input {
+    display: none;
+}
+tr:nth-child(4n+2) div.input-cell-value-shadow {
+    opacity: 1 !important
+}
+
+tr:nth-child(4n+2) input {
+    display: none;
+}
+.app-header{
+    font-family: mdlz;
+    font-size: 2.5rem;
+    color: #4F2170;
+    text-align: center;
+}
+.title-bar{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.bottom-bar{
+    margin-bottom: 10px;
+}
