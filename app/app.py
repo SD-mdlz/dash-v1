@@ -6,8 +6,7 @@ import pandas as pd
 from sql import upload_data, download_data
 from calculate_v3 import calculate
 import plotly.express as px
-import pyodbc 
-import sys
+import os
 
 pd.options.mode.chained_assignment
 
@@ -65,7 +64,7 @@ app.layout = dbc.Container(
             duration=2500,
             style={"position": "fixed", "top": 20, "right": 10, "width": 350, "zIndex": 1},
         ),
-        html.P(sys.getenv("USER")),
+        html.P(os.getlogin()),
         dbc.Row([
             dbc.Col(html.Img(src=get_asset_url('MDLZ Logo.png'), alt='image', height=50), width=1),
             dbc.Col(html.Div('master production schedule application', className='app-header'), width=10),
