@@ -228,6 +228,5 @@ def uploadBaseline(_, __, scenario, data):
     alert_message = 'Upload successful! Time required: ' + time_required +'s'
     return alert_message, True,'',''
 
-
 if __name__ == "__main__":
     app.run(debug=False)
