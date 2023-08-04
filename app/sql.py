@@ -14,26 +14,26 @@ def select_driver():
     drv = sorted([drv for drv in pyodbc.drivers()])
     if len(drv) == 0:
         raise Exception("No 'ODBC Driver XX for SQL Server' found.")
-    return drv[-1]
+    return drv[0]
 
 def get_sql_connection():
 
-    # conn = pyodbc.connect(
-    #     # 'Driver={SQL Server};'
-    #     'Driver={' + select_driver() + '};'
-    #     'Server=mdzusvpcwapp200.krft.net;'
-    #     'Database=Reporting_Global_DW;'
-    #     'UID=S-CAT_Reporting;'
-    #     'PWD=password1234;'
-    # )
     conn = pyodbc.connect(
         # 'Driver={SQL Server};'
         'Driver={' + select_driver() + '};'
         'Server=mdzusvpcwapp200.krft.net;'
-        'DBCName=Reporting_Global_DW;'
+        'Database=Reporting_Global_DW;'
         'UID=S-CAT_Reporting;'
         'PWD=password1234;'
     )
+    # conn = pyodbc.connect(
+    #     # 'Driver={SQL Server};'
+    #     'Driver={' + select_driver() + '};'
+    #     'Server=mdzusvpcwapp200.krft.net;'
+    #     'DBCName=Reporting_Global_DW;'
+    #     'UID=S-CAT_Reporting;'
+    #     'PWD=password1234;'
+    # )
     cursor = conn.cursor()
     cursor.fast_executemany = True
     return conn, cursor
