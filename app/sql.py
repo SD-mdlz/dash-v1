@@ -11,11 +11,14 @@ import datetime
 
 def get_sql_connection():
 
-    conn = pyodbc.connect('Driver={SQL Server};'
-                          'Server=mdzusvpcwapp200.krft.net;'
-                          'Database=Reporting_Global_DW;'
-                          'UID=S-CAT_Reporting;'
-                          'PWD=password1234;')
+    conn = pyodbc.connect(
+        # 'Driver={SQL Server};'
+        'Driver={/opt/microsoft/msodbcsql17/lib64/libmsodbcsql-17.0.so.1.1};'
+        'Server=mdzusvpcwapp200.krft.net;'
+        'Database=Reporting_Global_DW;'
+        'UID=S-CAT_Reporting;'
+        'PWD=password1234;'
+    )
     cursor = conn.cursor()
     cursor.fast_executemany = True
     return conn, cursor
