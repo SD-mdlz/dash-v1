@@ -1,0 +1,42 @@
+{
+    "version": 1,
+    "metadata": {
+        "appmode": "python-dash",
+        "entrypoint": "app:app"
+    },
+    "locale": "en_US.UTF-8",
+    "python": {
+        "version": "3.7.11",
+        "package_manager": {
+            "name": "pip",
+            "version": "21.0.1",
+            "package_file": "requirements.txt"
+        }
+    },
+    "files": {
+        "app.py": {
+            "checksum": "923b041bbf51ac49f8cfe9877b83b14f"
+        },
+        "assets/CAT Logo.png": {
+            "checksum": "8010750f279c78c9f7f10e1d1fc64767"
+        },
+        "assets/MDLZ Logo.png": {
+            "checksum": "ff33dcb3525703d8ee8990f2a1fae933"
+        },
+        "assets/MDLZBITETYPE-Regular.ttf": {
+            "checksum": "9baec048ee40fd53df2cc59b9d489588"
+        },
+        "assets/style.css": {
+            "checksum": "89beb310183ac8bb446fd56908141601"
+        },
+        "calculate_v3.py": {
+            "checksum": "8be470f5439a24ca7fb1eafbe24fec5c"
+        },
+        "requirements.txt": {
+            "checksum": "e9e2d27c1eba9cde5b82193d64869621"
+        },
+        "sql.py": {
+            "checksum": "a1955b6ed0e1007f6ffd38d6a4f3f638"
+        }
+    }
+}
