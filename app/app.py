@@ -3,7 +3,7 @@ import json
 from dash import Dash, dcc, html, Input, Output, State, dash_table, ctx, get_asset_url
 import dash_bootstrap_components as dbc
 import pandas as pd
-# from sql import upload_data, download_data
+from sql import upload_data, download_data
 from calculate_v3 import calculate
 import plotly.express as px
 
