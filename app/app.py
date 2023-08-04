@@ -6,6 +6,7 @@ import pandas as pd
 from sql import upload_data, download_data
 from calculate_v3 import calculate
 import plotly.express as px
+import pyodbc 
 
 pd.options.mode.chained_assignment
 
@@ -43,8 +44,16 @@ def get_graph_difc(df, country):
     return fig
 
 # global df
-df = calculate(download_data('Baseline'))
-# df = calculate(pd.read_csv('Data/data.csv'))
+# df = calculate(download_data('Baseline'))
+df = calculate(pd.read_csv('Data/data.csv'))
+
+def select_driver():
+    """Find least version of: ODBC Driver for SQL Server."""
+    drv = sorted([drv for drv in pyodbc.drivers()])
+    if len(drv) == 0:
+        raise Exception("No 'ODBC Driver XX for SQL Server' found.")
+    return ", ".join(drv)
+
 app.layout = dbc.Container(
     [
         dcc.Store(id='data'),
@@ -62,6 +71,7 @@ app.layout = dbc.Container(
             duration=2500,
             style={"position": "fixed", "top": 20, "right": 10, "width": 350, "zIndex": 1},
         ),
+        html.P(children=select_driver()),
         dbc.Row([
             dbc.Col(html.Img(src=get_asset_url('MDLZ Logo.png'), alt='image', height=50), width=1),
             dbc.Col(html.Div('master production schedule application', className='app-header'), width=10),
