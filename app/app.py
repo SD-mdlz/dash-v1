@@ -47,13 +47,6 @@ def get_graph_difc(df, country):
 df = calculate(download_data('Baseline'))
 # df = calculate(pd.read_csv('Data/data.csv'))
 
-def select_driver():
-    """Find least version of: ODBC Driver for SQL Server."""
-    drv = sorted([drv for drv in pyodbc.drivers()])
-    if len(drv) == 0:
-        raise Exception("No 'ODBC Driver XX for SQL Server' found.")
-    return ", ".join(drv)
-
 app.layout = dbc.Container(
     [
         dcc.Store(id='data'),
@@ -71,7 +64,6 @@ app.layout = dbc.Container(
             duration=2500,
             style={"position": "fixed", "top": 20, "right": 10, "width": 350, "zIndex": 1},
         ),
-        html.P(children=select_driver()),
         dbc.Row([
             dbc.Col(html.Img(src=get_asset_url('MDLZ Logo.png'), alt='image', height=50), width=1),
             dbc.Col(html.Div('master production schedule application', className='app-header'), width=10),
@@ -226,10 +218,10 @@ def uploadBaseline(_, __, scenario, data):
     df_new = pd.DataFrame(data)
     button_clicked = ctx.triggered_id
 
-    # if button_clicked == 'upload-baseline':
-    #     upload_data(df_new, 'Baseline')
-    # else:
-    #     upload_data(df_new, scenario)
+    if button_clicked == 'upload-baseline':
+        upload_data(df_new, 'Baseline')
+    else:
+        upload_data(df_new, scenario)
 
     end_time = datetime.datetime.now()
     time_required = str(round((end_time-start_time).total_seconds(),2))
