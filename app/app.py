@@ -43,8 +43,8 @@ def get_graph_difc(df, country):
     return fig
 
 # global df
-# df = calculate(download_data('Baseline'))
-df = calculate(pd.read_csv('Data/data.csv'))
+df = calculate(download_data('Baseline'))
+# df = calculate(pd.read_csv('Data/data.csv'))
 app.layout = dbc.Container(
     [
         dcc.Store(id='data'),
