@@ -3,7 +3,7 @@ import json
 from dash import Dash, dcc, html, Input, Output, State, dash_table, ctx, get_asset_url
 import dash_bootstrap_components as dbc
 import pandas as pd
-from sql import upload_data, download_data
+# from sql import upload_data, download_data
 from calculate_v3 import calculate
 import plotly.express as px
 
@@ -216,10 +216,10 @@ def uploadBaseline(_, __, scenario, data):
     df_new = pd.DataFrame(data)
     button_clicked = ctx.triggered_id
 
-    if button_clicked == 'upload-baseline':
-        upload_data(df_new, 'Baseline')
-    else:
-        upload_data(df_new, scenario)
+    # if button_clicked == 'upload-baseline':
+    #     upload_data(df_new, 'Baseline')
+    # else:
+    #     upload_data(df_new, scenario)
 
     end_time = datetime.datetime.now()
     time_required = str(round((end_time-start_time).total_seconds(),2))
